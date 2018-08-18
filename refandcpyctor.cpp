@@ -9,29 +9,29 @@ private:
 	char* m_sStr;
 public:
 	String() {
-		cout << "String µðÆúÆ® »ý¼ºÀÚ°¡ È£ÃâµÇ¾ú½À´Ï´Ù." << endl;
+		cout << "String ë””í´íŠ¸ ìƒì„±ìžê°€ í˜¸ì¶œë˜ì—ˆìŠµë‹ˆë‹¤." << endl;
 		m_sStr = NULL;
 	}
 
 	String(char* str) {
-		cout << "String »ý¼ºÀÚ°¡ È£ÃâµÇ¾ú½À´Ï´Ù." << endl;
+		cout << "String ìƒì„±ìžê°€ í˜¸ì¶œë˜ì—ˆìŠµë‹ˆë‹¤." << endl;
 		m_sStr = new char[strlen(str) + 1];
 		strcpy(m_sStr, str);
 	}
 
 	String(String &str) {
-		cout << "º¹»ç »ý¼ºÀÚ°¡ È£ÃâµÇ¾ú½À´Ï´Ù." << endl;
+		cout << "ë³µì‚¬ ìƒì„±ìžê°€ í˜¸ì¶œë˜ì—ˆìŠµë‹ˆë‹¤." << endl;
 		m_sStr = new char[strlen(str.get()) + 1];
 		strcpy(m_sStr, str.get());
 	}
 
 	~String() {
-		cout << "String ÆÄ±«ÀÚ°¡ È£ÃâµÇ¾ú½À´Ï´Ù." << endl;
+		cout << "String íŒŒê´´ìžê°€ í˜¸ì¶œë˜ì—ˆìŠµë‹ˆë‹¤." << endl;
 		delete m_sStr;
 	}
 
 	void operator=(const char* str) {
-		cout << "¿¬»êÀÚ ¿À¹ö·ÎµùÀÌ È£ÃâµÇ¾ú½À´Ï´Ù." << endl;
+		cout << "ì—°ì‚°ìž ì˜¤ë²„ë¡œë”©ì´ í˜¸ì¶œë˜ì—ˆìŠµë‹ˆë‹¤." << endl;
 		m_sStr = new char[strlen(str) + 1];
 		strcpy(m_sStr, str);
 	}
@@ -40,7 +40,7 @@ public:
 		return m_sStr;
 	}
 
-	void set(const char* str) { // ÀÎ¼ö´Â..
+	void set(const char* str) {
 		delete m_sStr;
 		m_sStr = new char[strlen(str) + 1];
 		strcpy(m_sStr, str);
@@ -51,7 +51,7 @@ public:
 
 int main() {
 	String str;
-	str = "ÈÄÈÄ";
+	str = "í›„í›„";
 	cout << str.get() << endl;
 	String::testReference(str);
 	cout << str.get() << endl;
@@ -60,10 +60,10 @@ int main() {
 	system("pause");
 }
 
-void String::testReference(String &str) { // ÂüÁ¶µÈ str.
-	str.set("Å©Å©");
+void String::testReference(String &str) { // ì°¸ì¡°ëœ str.
+	str.set("í¬í¬");
 }
 
-void String::testCopy(String str) { // strÀº º¹»ç »ý¼ºµÊ.
-	str.set("ÄÉÄÉ");
+void String::testCopy(String str) { // strì€ ë³µì‚¬ ìƒì„±ë¨.
+	str.set("ì¼€ì¼€");
 }
