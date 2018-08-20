@@ -45,6 +45,11 @@ public:
 		m_sStr = new char[strlen(str) + 1];
 		strcpy(m_sStr, str);
 	}
+	
+	operator char*() {
+		return m_sStr;
+	}
+	
 	static void testReference(String&);
 	static void testCopy(String);
 };
@@ -52,7 +57,7 @@ public:
 int main() {
 	String str;
 	str = "후후";
-	cout << str.get() << endl;
+	cout << str << endl;
 	String::testReference(str);
 	cout << str.get() << endl;
 	String::testCopy(str);
